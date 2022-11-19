@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "custom-toastr": {
+      "projectType": "library",
+      "root": "projects/custom-toastr",
+      "sourceRoot": "projects/custom-toastr/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/custom-toastr/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/custom-toastr/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/custom-toastr/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/custom-toastr/src/test.ts",
+            "tsConfig": "projects/custom-toastr/tsconfig.spec.json",
+            "karmaConfig": "projects/custom-toastr/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
